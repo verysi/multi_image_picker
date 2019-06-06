@@ -221,12 +221,18 @@ public class MultiImagePickerPlugin implements MethodCallHandler, PluginRegistry
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
+                ActivityCompat.requestPermissions(this.activity,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GRANT_PERMISSIONS);
             } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(this.activity,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GRANT_PERMISSIONS);
             }
+            ActivityCompat.requestPermissions(this.activity,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GRANT_PERMISSIONS);
             clearMethodCallAndResult();
         } else {
             presentPicker();
